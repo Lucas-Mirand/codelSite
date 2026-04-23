@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEL - Gestão Desktop Enterprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="app-body">
+
+    <!-- ===================== SIDEBAR / BARRA LATERAL ===================== -->
+    <aside id="sidebar" class="sidebar">
+
+        <!-- Perfil do Sistema -->
+        <div class="sidebar__profile">
+            <img src="assets/logo.png" alt="Logo CODEL" class="sidebar__logo">
+            <span class="sidebar__brand-name">CODEL SYSTEM</span>
+            <span class="sidebar__brand-subtitle">Desktop Enterprise</span>
+        </div>
+
+        <!-- Menu de Navegação -->
+        <nav class="sidebar__nav">
+            <button onclick="showView('rota')" id="nav-btn-rota" class="nav-item nav-item--active">
+                <svg class="nav-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                <span>Rota</span>
+            </button>
+
+            <button onclick="showView('usuarios')" id="nav-btn-usuarios" class="nav-item">
+                <svg class="nav-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+                <span>Usuários</span>
+            </button>
+
+            <button onclick="showView('dados')" id="nav-btn-dados" class="nav-item">
+                <svg class="nav-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                </svg>
+                <span>Dados</span>
+            </button>
+
+            <button onclick="showView('suporte')" id="nav-btn-suporte" class="nav-item">
+                <svg class="nav-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                <span>Suporte</span>
+            </button>
+
+            <button onclick="showView('ajustes')" id="nav-btn-ajustes" class="nav-item">
+                <svg class="nav-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Ajustes</span>
+            </button>
+        </nav>
+
+        <!-- Rodapé da Sidebar (Troca de Tema) -->
+        <div class="sidebar__footer">
+            <button onclick="toggleTheme()" class="theme-toggle-btn" aria-label="Alternar tema">
+                <svg id="theme-toggle-icon" class="theme-toggle-btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <span>Mudar Tema</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ===================== ÁREA PRINCIPAL ===================== -->
+    <main class="main-content">
+
+        <!-- Cabeçalho -->
+        <header class="app-header">
+            <div class="app-header__left">
+                <!-- Botão Hamburguer -->
+                <button onclick="toggleSidebar()" class="icon-btn" aria-label="Abrir menu">
+                    <svg class="icon-btn__icon icon-btn__icon--accent" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Título da View Atual -->
+                <div class="page-heading">
+                    <h1 id="page-title" class="page-heading__title">Rota</h1>
+                    <p class="page-heading__subtitle">Monitoramento Centralizado</p>
+                </div>
+            </div>
+
+            <div class="app-header__right">
+                <!-- Botão de Notificações -->
+                <button onclick="toggleNotificationPanel()" class="icon-btn icon-btn--relative" aria-label="Notificações">
+                    <svg class="icon-btn__icon icon-btn__icon--dimmed" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <div id="notification-badge" class="notification-badge notification-badge--hidden"></div>
+                </button>
+
+                <!-- Relógio em Tempo Real -->
+                <div class="clock-widget">
+                    <div class="clock-widget__pulse"></div>
+                    <span id="realtime-clock" class="clock-widget__time">00:00:00</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Container de Views -->
+        <div id="view-container" class="view-container">
+
+            <!-- VIEW: ROTA (Mapa) -->
+            <div id="view-rota" class="view view--rota view--active">
+                <div id="map-wrapper" class="map-wrapper">
+                    <svg id="map-svg" viewBox="0 0 100 100" class="map-svg"></svg>
+                </div>
+            </div>
+
+            <!-- VIEW: USUÁRIOS -->
+            <div id="view-usuarios" class="view view--usuarios"></div>
+
+            <!-- VIEW: DADOS (Histórico de Coletas) -->
+            <div id="view-dados" class="view view--dados">
+                <div class="data-table-wrapper">
+                    <table class="data-table">
+                        <thead class="data-table__head">
+                            <tr>
+                                <th class="data-table__th">Motorista</th>
+                                <th class="data-table__th">Ponto (PEV)</th>
+                                <th class="data-table__th">Data</th>
+                                <th class="data-table__th">Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody id="collection-history-table" class="data-table__body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: SUPORTE (Chat) -->
+            <div id="view-suporte" class="view view--suporte">
+                <div id="driver-chat-list" class="chat-sidebar"></div>
+                <div id="active-chat-panel" class="chat-panel">
+                    <div class="chat-panel__empty-state">
+                        <svg class="chat-panel__empty-icon" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <p class="chat-panel__empty-text">Inicie o suporte selecionando um operador</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: AJUSTES -->
+            <div id="view-ajustes" class="view view--ajustes">
+                <div class="settings-card">
+
+                    <!-- Configuração: Saída Automática -->
+                    <div class="setting-row">
+                        <div class="setting-row__info">
+                            <h4 class="setting-row__title">Saída Automática (70%+)</h4>
+                            <p class="setting-row__description">Caminhão sai da base assim que atingir 70% de carga.</p>
+                        </div>
+                        <button onclick="toggleSetting('autoDispatch')" id="toggle-autoDispatch"
+                            class="toggle-switch toggle-switch--on" aria-label="Ativar saída automática">
+                            <div id="toggle-dot-autoDispatch" class="toggle-switch__dot toggle-switch__dot--right"></div>
+                        </button>
+                    </div>
+
+                    <!-- Configuração: Otimização de Trajeto -->
+                    <div class="setting-row setting-row--divided">
+                        <div class="setting-row__info">
+                            <h4 class="setting-row__title">Otimização de Trajeto</h4>
+                            <p class="setting-row__description">O algoritmo decide a melhor ordem de coleta.</p>
+                        </div>
+                        <button onclick="toggleSetting('routeOptimization')" id="toggle-routeOptimization"
+                            class="toggle-switch toggle-switch--on" aria-label="Ativar otimização de trajeto">
+                            <div id="toggle-dot-routeOptimization" class="toggle-switch__dot toggle-switch__dot--right"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===================== PAINEL DE NOTIFICAÇÕES ===================== -->
+    <aside id="notification-panel" class="notification-panel">
+        <div class="notification-panel__header">
+            <h3 class="notification-panel__title">Histórico de Alertas</h3>
+            <button onclick="clearAllNotifications()" class="notification-panel__clear-btn" aria-label="Limpar notificações">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="notification-list" class="notification-panel__list"></div>
+    </aside>
+
+    <!-- ===================== MODAL DE DETALHE DO MOTORISTA ===================== -->
+    <div id="user-detail-modal" class="modal modal--hidden">
+        <div id="user-detail-modal-content" class="modal__content"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
